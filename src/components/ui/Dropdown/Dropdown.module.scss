@@ -1,0 +1,80 @@
+.DropdownContainer {
+  position: relative;
+  width: fit-content;
+
+  .Dropdown {
+    // smooth appearance animation
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s linear;
+
+    position: relative;
+    .ArrowUp {
+      position: absolute;
+      top: -8px;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid white;
+
+      &::before {
+        content: "";
+        width: 12px;
+        transform: rotate(-45deg);
+        border-bottom: solid 1px lightgray;
+        position: absolute;
+        left: -10px;
+        bottom: -4px;
+      }
+
+      &::after {
+        content: "";
+        width: 12px;
+        transform: rotate(45deg);
+        border-bottom: solid 1px lightgray;
+        position: absolute;
+        left: -2px;
+        bottom: -4px;
+      }
+    }
+
+    .ArrowDown {
+      position: absolute;
+      bottom: -8px;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid white;
+
+      &::before {
+        content: "";
+        width: 12px;
+        transform: rotate(45deg);
+        border-bottom: solid 1px lightgray;
+        position: absolute;
+        left: -10px;
+        top: -4px;
+      }
+
+      &::after {
+        content: "";
+        width: 12px;
+        transform: rotate(-45deg);
+        border-bottom: solid 1px lightgray;
+        position: absolute;
+        left: -2px;
+        top: -4px;
+      }
+    }
+
+    position: absolute;
+    background-color: white;
+    border: 1px lightgray solid;
+    box-shadow: 0 0 20px 0 rgba(34, 60, 80, 0.2);
+    z-index: 9999;
+  }
+
+  // smooth appearance animation
+  .IsOpen {
+    opacity: 1;
+    pointer-events: all;
+  }
+}

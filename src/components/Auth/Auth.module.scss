@@ -1,0 +1,21 @@
+.AuthBoxWrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f1f3f4;
+
+  .AuthBox {
+    margin-top: 10%;
+    padding: 32px;
+    //background-color: white; // TODO: uncomment after adding multiple ways to sign in
+    border-radius: 16px;
+
+    .AuthBoxItems {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+}

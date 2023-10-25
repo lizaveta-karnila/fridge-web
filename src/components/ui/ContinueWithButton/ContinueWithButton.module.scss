@@ -1,0 +1,33 @@
+.ContinueWithButton {
+  border: lightgray 2px solid;
+  border-radius: 999px;
+  padding: 8px 48px;
+  background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    transition: 0.3s;
+    box-shadow: 0 8px 8px -8px rgba(34, 60, 80, 0.6);
+  }
+
+  .ContinueWithButtonContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    .Icon {
+      height: 32px;
+      width: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .Text {
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
+}
