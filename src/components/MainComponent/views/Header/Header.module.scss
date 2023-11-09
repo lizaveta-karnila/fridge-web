@@ -1,9 +1,5 @@
 .Header {
-  width: 100%;
   height: 100px;
-  padding: 0 15px;
-  max-width: 1230px;
-  margin: 0 auto;
 
   .HeaderContent {
     height: 100%;
@@ -11,19 +7,83 @@
     align-items: center;
     justify-content: flex-end;
 
+    .LanguageDropdown {
+      margin-right: 16px;
+
+      &Trigger {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+
+        .LanguageIcon {
+          height: 18px;
+          width: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .ArrowIcon {
+          height: 18px;
+          width: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.1s;
+        }
+
+        .Rotate180 {
+          transform: rotate(180deg);
+        }
+      }
+
+      &List {
+        padding: 4px 0;
+        display: flex;
+        flex-direction: column;
+
+        &Item {
+          padding: 0 16px;
+          cursor: pointer;
+          height: 24px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          .CheckmarkIconWrapper {
+            width: 12px;
+            height: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          &:hover {
+            background-color: #eeeff3;
+          }
+        }
+
+        .Selected {
+          color: #FF4269;
+        }
+      }
+    }
+
     .User {
       .Avatar {
         cursor: pointer;
         height: 48px;
         width: 48px;
         border-radius: 50%;
+        user-select: none;
       }
 
       .DropdownList {
-        padding: 8px 0;
+        padding: 4px 0;
         display: flex;
         flex-direction: column;
-        gap: 4px;
 
         .ListItem {
           padding: 0 16px;
@@ -34,7 +94,7 @@
           align-items: center;
 
           &:hover {
-            background-color: lightgray;
+            background-color: #eeeff3;
           }
         }
       }

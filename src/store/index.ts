@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from 'store/user/userSlice';
+import groceriesCatalogReducer from 'store/groceriesCatalog/groceriesCatalogSlice';
 
 export const store = configureStore({
     reducer: {
         user: userReducer,
+        groceriesCatalog: groceriesCatalogReducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: false

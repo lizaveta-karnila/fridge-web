@@ -1,0 +1,17 @@
+@mixin scrollbars($size: 6px, $foreground-color: #FFA2B5, $background-color: mix($foreground-color, white, 50%)) {
+  ::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: calc($size / 2);
+
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $background-color;
+    border-radius: calc($size / 2);
+  }
+}

@@ -2,12 +2,12 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {User} from "firebase/auth";
 import {restoreUserDataThunk, signInGoogleThunk, signOutThunk} from "./userThunks";
 
-interface UserState {
+interface IUserState {
   token: string | null;
   user: User | null;
 }
 
-const initialState: UserState = {
+const initialState: IUserState = {
   token: null,
   user: null,
 }
@@ -17,24 +17,24 @@ export const userSlice = createSlice({
   initialState,
 
   reducers: {
-    setToken(state, action: PayloadAction<UserState['token']>) {
+    setToken(state, action: PayloadAction<IUserState['token']>) {
       state.token = action.payload;
     },
-    setUser(state, action: PayloadAction<UserState['user']>) {
+    setUser(state, action: PayloadAction<IUserState['user']>) {
       state.user = action.payload;
     },
   },
 
   extraReducers: (builder) => {
-    builder.addCase(signInGoogleThunk.fulfilled, (state: UserState, {payload}) => {
+    builder.addCase(signInGoogleThunk.fulfilled, (state: IUserState, {payload}) => {
       state.token = payload.token;
       state.user = payload.user;
     })
-    builder.addCase(restoreUserDataThunk.fulfilled, (state: UserState, {payload}) => {
+    builder.addCase(restoreUserDataThunk.fulfilled, (state: IUserState, {payload}) => {
       state.token = payload.token;
       state.user = payload.user;
     })
-    builder.addCase(signOutThunk.fulfilled, (state: UserState) => {
+    builder.addCase(signOutThunk.fulfilled, (state: IUserState) => {
       state.token = null;
       state.user = null;
     })

@@ -1,3 +1,6 @@
+@import 'styles/scrollbarsMixin';
+@import 'styles/fonts';
+
 *,
 *::before,
 *::after {
@@ -35,6 +38,8 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
   line-height: 1;
+  @include scrollbars();
+  font-family: InnerTight-Regular, sans-serif;
 }
 ol, ul {
   list-style: none;

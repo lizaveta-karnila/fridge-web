@@ -1,0 +1,91 @@
+.CategoryGroceryWrapper {
+  overflow: hidden;
+  display: flex;
+  gap: 32px;
+  box-sizing: border-box;
+  max-height: 400px;
+
+  .CategoriesList {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 8px;
+
+    .CategoryItem {
+      width: 100px;
+      height: 100px;
+      border-radius: 16px;
+      background-color: white;
+      box-shadow: 0 8px 16px 0 #eeeff3;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+      transition: all 0.1s;
+      user-select: none;
+
+      &:not(:first-child) {
+        margin-top: 16px;
+      }
+
+      &Selected {
+        background-color: #eeeff3;
+        font-family: 'InnerTight-Bold', sans-serif;
+      }
+
+      .CategoryItemIcon {
+        height: 40px;
+        width: 40px;
+      }
+    }
+  }
+
+  .GroceriesBlock {
+    overflow: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 8px;
+
+    .Category {
+      &Name {
+        margin-bottom: 32px;
+        font-family: 'InnerTight-Bold', sans-serif;
+      }
+
+      .GroceriesList {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 16px;
+
+        .NoGroceriesInCategory {
+          white-space: nowrap;
+        }
+
+        .GroceryItem {
+          padding: 16px 24px;
+          border-radius: 16px;
+          background-color: white;
+          box-shadow: 0 8px 16px 0 #eeeff3;
+          display: flex;
+          align-items: center;
+          user-select: none;
+
+          .CategoryIconNameWrapper {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            .GroceryItemIcon {
+              height: 32px;
+              width: 32px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

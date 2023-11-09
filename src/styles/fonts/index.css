@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'InnerTight-Regular';
+    src: local('InnerTight-Regular'),
+    url('./InterTight-Regular.woff') format('woff'),
+    url('./InterTight-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'InnerTight-Bold';
+    src: local('InnerTight-Bold'),
+    url('./InterTight-SemiBold.woff') format('woff'),
+    url('./InterTight-SemiBold.woff2') format('woff2');
+}

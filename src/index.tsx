@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "index.css";
+import "index.scss";
 import App from "App";
 import {store} from "store";
 import {Provider} from "react-redux";
 import "./firebase";
+import "./i18n";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

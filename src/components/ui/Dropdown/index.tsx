@@ -1,4 +1,4 @@
-import {ReactNode, useLayoutEffect, useRef, useState} from "react";
+import {FunctionComponent, useLayoutEffect, useRef, useState} from "react";
 import styles from "./Dropdown.module.scss";
 import {useOnClickOutside} from "usehooks-ts";
 import cx from 'classnames';
@@ -7,12 +7,12 @@ const BORDER_RADIUS = 8; // px
 const HEADER_DROPDOWN_GAP = 4; // px
 
 interface IProps {
-  trigger: ReactNode;
-  content: ReactNode;
+  Trigger: FunctionComponent<{ isDropdownOpened: boolean }>;
+  Content: FunctionComponent<{ closeDropdown: () => void }>;
   togglingStrategy?: 'click' | 'hover';
 }
 
-function Dropdown({trigger, content, togglingStrategy = 'click'}: IProps) {
+function Dropdown({Trigger, Content, togglingStrategy = 'click'}: IProps) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
   const refTrigger = useRef<HTMLDivElement | null>(null);
@@ -96,7 +96,7 @@ function Dropdown({trigger, content, togglingStrategy = 'click'}: IProps) {
         onClick={togglingStrategy === 'click' ? () => setIsOpen(!isOpen) : undefined}
         ref={refTrigger}
       >
-        {trigger}
+        <Trigger isDropdownOpened={isOpen}/>
       </div>
       <div className={cx(styles.Dropdown, {[styles.IsOpen]: isOpen})}
            style={{borderRadius: BORDER_RADIUS}}
@@ -104,7 +104,7 @@ function Dropdown({trigger, content, togglingStrategy = 'click'}: IProps) {
       >
         <div className={styles.ArrowUp} ref={refArrowUp}/>
         <div className={styles.ArrowDown} ref={refArrowDown}/>
-        {content}
+        <Content closeDropdown={() => setIsOpen(false)}/>
       </div>
     </div>
   )
