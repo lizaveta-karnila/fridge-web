@@ -3,5 +3,6 @@
     "continueWithGoogle": "Continue with Google",
     "signOut": "Sign out"
   },
-  "noGroceriesInCategory": "There are no groceries in the category"
+  "noGroceriesInCategory": "There are no groceries in the category",
+  "selectedGroceries": "Selected groceries"
 }

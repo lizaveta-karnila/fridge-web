@@ -3,5 +3,6 @@
     "continueWithGoogle": "Продолжить с помощью Google",
     "signOut": "Выйти"
   },
-  "noGroceriesInCategory": "В категории нет продуктов"
+  "noGroceriesInCategory": "В категории нет продуктов",
+  "selectedGroceries": "Выбранные продукты"
 }

@@ -3,14 +3,16 @@ import styles from './GroceriesCatalogItems.module.scss';
 import {useAppDispatch, useAppSelector} from "store/hooks";
 import {groceriesCatalogSelectors} from "store/groceriesCatalog/groceriesCatalogSelectors";
 import {getCategoriesThunk, getGroceriesThunk} from "store/groceriesCatalog/groceriesCatalogThunks";
-import {ICategory, ITranslatable} from "store/types";
+import {ICategory, IGrocery, ITranslatable} from "store/types";
 import {useTranslation} from "react-i18next";
 import cx from "classnames";
 import {capitalizeFirstLetter} from "utils/stringHelpers";
+import {groceriesCatalogActions} from "store/groceriesCatalog/groceriesCatalogSlice";
 
 function GroceriesCatalogItems() {
   const categories = useAppSelector(groceriesCatalogSelectors.categoriesSelector);
   const groupedByCategoriesGroceries = useAppSelector(groceriesCatalogSelectors.groupedByCategoriesGroceriesSelector);
+  const selectedGroceries = useAppSelector(groceriesCatalogSelectors.selectedGroceriesSelector);
   const dispatch = useAppDispatch();
 
   const [selectedCategoryId, setSelectedCategoryId] = useState(categories[0]?.id);
@@ -39,6 +41,13 @@ function GroceriesCatalogItems() {
     setSelectedCategoryId(categoryId);
     scrollToCategoryRef(categoryId);
   }
+
+  const addGroceryToSelectedGroceries = (grocery: IGrocery) => {
+    dispatch(groceriesCatalogActions.changeSelectedGroceryQuantity({
+      grocery: grocery,
+      quantity: grocery.standardQuantity
+    }))
+  };
 
   return (
     <div className={styles.CategoryGroceryWrapper}>
@@ -75,14 +84,27 @@ function GroceriesCatalogItems() {
                       <div className={styles.NoGroceriesInCategory}>{t("noGroceriesInCategory")}</div>
                     )}
                     {
-                      category.groceries.map((grocery, ii) => (
-                        <div className={styles.GroceryItem} key={ii}>
-                          <div className={styles.CategoryIconNameWrapper}>
-                            <img className={styles.GroceryItemIcon} src={grocery.iconURI} alt={grocery.name[language]}/>
-                            <div>{capitalizeFirstLetter(grocery.name[language].trim())}</div>
+                      category.groceries.map((grocery, ii) => {
+                        const isGrocerySelected = selectedGroceries.find((sg) => sg.grocery.id === grocery.id);
+                        return (
+                          <div className={styles.GroceryItem} key={ii}>
+                            <div className={styles.CategoryIconNameWrapper}>
+                              <img className={styles.GroceryItemIcon} src={grocery.iconURI} alt={grocery.name[language]}/>
+                              <div>{capitalizeFirstLetter(grocery.name[language].trim())}</div>
+                            </div>
+                            {
+                              !isGrocerySelected && (
+                                <button
+                                  className={styles.SelectGroceryButton}
+                                  onClick={() => addGroceryToSelectedGroceries(grocery)}
+                                >
+                                  +
+                                </button>
+                              )
+                            }
                           </div>
-                        </div>
-                      ))
+                        );
+                      })
                     }
                   </div>
                 </div>

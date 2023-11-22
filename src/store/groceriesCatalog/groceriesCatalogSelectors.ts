@@ -31,4 +31,8 @@ export const groceriesCatalogSelectors = {
     groceriesCatalogReducerSelector,
     param => param.categories
   ),
+  selectedGroceriesSelector: createSelector(
+    groceriesCatalogReducerSelector,
+    param => param.selectedGroceries
+  ),
 };

@@ -1,12 +1,14 @@
 import React from "react";
 import GroceriesCatalogItems from "./GroceriesCatalogItems";
+import GroceriesCatalogSelectedItems from "./GroceriesCatalogSelectedItems";
+import styles from './GroceriesCatalog.module.scss';
 
 function GroceriesCatalog() {
   return (
-    <div>
+    <div className={styles.GroceriesCatalog}>
       {/*GroceriesCatalogSearch*/}
       <GroceriesCatalogItems/>
-      {/*GroceriesCatalogSelectedItems*/}
+      <GroceriesCatalogSelectedItems className={styles.GroceriesCatalogSelectedItemsWrapper}/>
       {/*ActionButtons*/}
     </div>
   );
