@@ -1,5 +1,15 @@
 .GroceriesCatalog {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+
+  &ItemsWrapper {
+    flex: 1;
+    margin: 0 20px;
+  }
+
   &SelectedItemsWrapper {
-    margin-top: 40px;
+    margin: 40px 20px 0 20px;
   }
 }

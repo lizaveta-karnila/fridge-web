@@ -1,0 +1,56 @@
+.Overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  pointer-events: none;
+
+  &.IsOpened {
+    opacity: 1;
+    pointer-events: visible;
+    transition: all 0.1s ease-in-out;
+  }
+
+  .Modal {
+    background-color: #fff;
+    padding: 16px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+
+    &.Large {
+      width: 1200px;
+      max-height: 80vh;
+    }
+
+    .CloseButtonWrapper {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      margin-bottom: 8px;
+
+      .CloseButton {
+        height: 24px;
+        width: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+    }
+
+    &Content {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+    }
+  }
+}

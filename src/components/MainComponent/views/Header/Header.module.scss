@@ -4,97 +4,108 @@
   .HeaderContent {
     height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+    gap: 16px;
 
-    .LanguageDropdown {
-      margin-right: 16px;
+    &Left {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
 
-      &Trigger {
-        display: flex;
-        gap: 4px;
-        align-items: center;
-        cursor: pointer;
-        user-select: none;
+    &Right {
+      display: flex;
+      align-items: center;
 
-        .LanguageIcon {
-          height: 18px;
-          width: 18px;
+      .LanguageDropdown {
+        margin-right: 16px;
+
+        &Trigger {
           display: flex;
+          gap: 4px;
           align-items: center;
-          justify-content: center;
-        }
-
-        .ArrowIcon {
-          height: 18px;
-          width: 18px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: all 0.1s;
-        }
-
-        .Rotate180 {
-          transform: rotate(180deg);
-        }
-      }
-
-      &List {
-        padding: 4px 0;
-        display: flex;
-        flex-direction: column;
-
-        &Item {
-          padding: 0 16px;
           cursor: pointer;
-          height: 24px;
-          display: flex;
-          align-items: center;
-          gap: 8px;
+          user-select: none;
 
-          .CheckmarkIconWrapper {
-            width: 12px;
-            height: 12px;
+          .LanguageIcon {
+            height: 18px;
+            width: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
           }
 
-          &:hover {
-            background-color: #eeeff3;
+          .ArrowIcon {
+            height: 18px;
+            width: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.1s;
+          }
+
+          .Rotate180 {
+            transform: rotate(180deg);
           }
         }
 
-        .Selected {
-          color: #FF4269;
+        &List {
+          padding: 4px 0;
+          display: flex;
+          flex-direction: column;
+
+          &Item {
+            padding: 0 16px;
+            cursor: pointer;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .CheckmarkIconWrapper {
+              width: 12px;
+              height: 12px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            &:hover {
+              background-color: #eeeff3;
+            }
+          }
+
+          .Selected {
+            color: #FF4269;
+          }
         }
       }
-    }
 
-    .User {
-      .Avatar {
-        cursor: pointer;
-        height: 48px;
-        width: 48px;
-        border-radius: 50%;
-        user-select: none;
-      }
-
-      .DropdownList {
-        padding: 4px 0;
-        display: flex;
-        flex-direction: column;
-
-        .ListItem {
-          padding: 0 16px;
+      .User {
+        .Avatar {
           cursor: pointer;
-          min-width: 100px;
-          height: 24px;
-          display: flex;
-          align-items: center;
+          height: 48px;
+          width: 48px;
+          border-radius: 50%;
+          user-select: none;
+        }
 
-          &:hover {
-            background-color: #eeeff3;
+        .DropdownList {
+          padding: 4px 0;
+          display: flex;
+          flex-direction: column;
+
+          .ListItem {
+            padding: 0 16px;
+            cursor: pointer;
+            min-width: 100px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+              background-color: #eeeff3;
+            }
           }
         }
       }

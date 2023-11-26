@@ -8,6 +8,10 @@ export const groceriesCatalogReducerSelector = createSelector(
 );
 
 export const groceriesCatalogSelectors = {
+  isModalOpenedSelector: createSelector(
+    groceriesCatalogReducerSelector,
+    param => param.isModalOpened
+  ),
   groupedByCategoriesGroceriesSelector: createSelector(
     groceriesCatalogReducerSelector,
     param => {

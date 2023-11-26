@@ -4,5 +4,6 @@
     "signOut": "Sign out"
   },
   "noGroceriesInCategory": "There are no groceries in the category",
-  "selectedGroceries": "Selected groceries"
+  "selectedGroceries": "Selected groceries",
+  "search": "Search for grocery"
 }

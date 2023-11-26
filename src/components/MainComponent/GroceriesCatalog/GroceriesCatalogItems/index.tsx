@@ -1,15 +1,18 @@
-import React, {RefObject, useEffect, useState} from "react";
+import React, {RefObject, useState} from "react";
 import styles from './GroceriesCatalogItems.module.scss';
 import {useAppDispatch, useAppSelector} from "store/hooks";
 import {groceriesCatalogSelectors} from "store/groceriesCatalog/groceriesCatalogSelectors";
-import {getCategoriesThunk, getGroceriesThunk} from "store/groceriesCatalog/groceriesCatalogThunks";
 import {ICategory, IGrocery, ITranslatable} from "store/types";
 import {useTranslation} from "react-i18next";
 import cx from "classnames";
 import {capitalizeFirstLetter} from "utils/stringHelpers";
 import {groceriesCatalogActions} from "store/groceriesCatalog/groceriesCatalogSlice";
 
-function GroceriesCatalogItems() {
+interface IProps {
+  className: string,
+}
+
+function GroceriesCatalogItems({className}: IProps) {
   const categories = useAppSelector(groceriesCatalogSelectors.categoriesSelector);
   const groupedByCategoriesGroceries = useAppSelector(groceriesCatalogSelectors.groupedByCategoriesGroceriesSelector);
   const selectedGroceries = useAppSelector(groceriesCatalogSelectors.selectedGroceriesSelector);
@@ -24,11 +27,6 @@ function GroceriesCatalogItems() {
     acc[value.id] = React.createRef();
     return acc;
   }, {});
-
-  useEffect(() => {
-    dispatch(getCategoriesThunk());
-    dispatch(getGroceriesThunk());
-  }, [dispatch])
 
   const scrollToCategoryRef = (categoryId: ICategory['id']) => {
     refs[categoryId].current!.scrollIntoView({
@@ -50,7 +48,7 @@ function GroceriesCatalogItems() {
   };
 
   return (
-    <div className={styles.CategoryGroceryWrapper}>
+    <div className={cx(styles.CategoryGroceryWrapper, className)}>
       {
         categories.length && (
           <div className={styles.CategoriesList}>

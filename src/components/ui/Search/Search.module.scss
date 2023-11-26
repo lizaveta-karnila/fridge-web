@@ -1,0 +1,52 @@
+.Search {
+  width: 100%;
+  cursor: pointer;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  font-family: InnerTight-Regular, sans-serif;
+  background-color: #EBE6E7;
+  color: #262022;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+
+  &Bordered {
+    outline: 2px solid #FF4268;
+    outline-offset: 2px;
+  }
+
+  .SearchIconTextContainer {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+
+    .SearchIcon {
+      height: 24px;
+      width: 24px;
+      margin-right: 12px;
+    }
+
+    .SearchText {
+      color: #9A9496;
+      font-size: 16px;
+    }
+  }
+
+  .Shortcut {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    &SubItem {
+      height: 20px;
+      line-height: 20px;
+      border-radius: 8px;
+      padding: 0 6px;
+      background-color: #FFFFFF;
+      color: #9A9496;
+      font-size: 14px;
+    }
+  }
+}

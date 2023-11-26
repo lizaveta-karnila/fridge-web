@@ -3,7 +3,6 @@
   display: flex;
   gap: 32px;
   box-sizing: border-box;
-  max-height: 400px;
 
   .CategoriesList {
     overflow-x: hidden;
@@ -98,6 +97,7 @@
             font-family: InnerTight-Bold, sans-serif;
             font-size: 18px;
             line-height: 100%;
+            margin-left: 8px;
           }
         }
       }

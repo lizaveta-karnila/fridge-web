@@ -12,6 +12,9 @@ import LanguageIcon from "assets/LanguageIcon";
 import cx from "classnames";
 import CheckmarkIcon from "assets/CheckmarkIcon";
 import ArrowDownIcon from "assets/ArrowDownIcon";
+import {groceriesCatalogActions} from "store/groceriesCatalog/groceriesCatalogSlice";
+import {getCategoriesThunk, getGroceriesThunk} from "store/groceriesCatalog/groceriesCatalogThunks";
+import SearchButton from "components/ui/Search/SearchButton";
 
 function Header() {
   const user = useAppSelector(userSelector);
@@ -70,20 +73,32 @@ function Header() {
     </div>
   );
 
+  const openCategoryModalHandler = () => {
+    dispatch(groceriesCatalogActions.setIsModalOpened(true));
+    dispatch(getCategoriesThunk());
+    dispatch(getGroceriesThunk());
+  };
+
   return (
     <div className={styles.Header}>
       <div className={styles.HeaderContent}>
-        <div className={styles.LanguageDropdown}>
-          <Dropdown Trigger={LanguageDropdownTrigger} Content={LanguageDropdownContent}/>
+        <div className={styles.HeaderContentLeft}>
+          <SearchButton onSearchClickHandler={openCategoryModalHandler}/>
         </div>
 
-        {
-          user && (
-            <div className={styles.User}>
-              <Dropdown Trigger={UserDropdownTrigger} Content={UserDropdownContent}/>
-            </div>
-          )
-        }
+        <div className={styles.HeaderContentRight}>
+          <div className={styles.LanguageDropdown}>
+            <Dropdown Trigger={LanguageDropdownTrigger} Content={LanguageDropdownContent}/>
+          </div>
+
+          {
+            user && (
+              <div className={styles.User}>
+                <Dropdown Trigger={UserDropdownTrigger} Content={UserDropdownContent}/>
+              </div>
+            )
+          }
+        </div>
       </div>
     </div>
   );

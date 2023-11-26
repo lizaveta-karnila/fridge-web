@@ -3,12 +3,14 @@ import {ICategory, IGrocery, IGroceryWithCategory, ISelectedGrocery} from "store
 import {getCategoriesThunk, getGroceriesThunk} from "./groceriesCatalogThunks";
 
 interface IGroceriesCatalogState {
+  isModalOpened: boolean;
   groceries: IGroceryWithCategory[];
   categories: ICategory[];
   selectedGroceries: ISelectedGrocery[];
 }
 
 const initialState: IGroceriesCatalogState = {
+  isModalOpened: false,
   groceries: [],
   categories: [],
   selectedGroceries: [],
@@ -19,6 +21,9 @@ export const groceriesCatalogSlice = createSlice({
   initialState,
 
   reducers: {
+    setIsModalOpened(state, action: PayloadAction<boolean>) {
+      state.isModalOpened = action.payload;
+    },
     // setGroceries(state, action: PayloadAction<IGroceriesCatalogState['groceries']>) {
     //   state.groceries = action.payload;
     // },
@@ -36,13 +41,15 @@ export const groceriesCatalogSlice = createSlice({
     removeGroceryFromSelectedGroceries(state, action: PayloadAction<IGrocery["id"]>) {
       state.selectedGroceries = state.selectedGroceries.filter((i) => i.grocery.id !== action.payload);
     },
+    resetGroceriesCatalogState() {
+      return initialState
+    },
   },
 
   extraReducers: (builder) => {
     builder.addCase(getGroceriesThunk.fulfilled, (state: IGroceriesCatalogState, {payload}) => {
       state.groceries = payload;
     })
-
     builder.addCase(getCategoriesThunk.fulfilled, (state: IGroceriesCatalogState, {payload}) => {
       state.categories = payload;
     })

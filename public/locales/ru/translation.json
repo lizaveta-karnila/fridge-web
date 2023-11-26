@@ -4,5 +4,6 @@
     "signOut": "Выйти"
   },
   "noGroceriesInCategory": "В категории нет продуктов",
-  "selectedGroceries": "Выбранные продукты"
+  "selectedGroceries": "Выбранные продукты",
+  "search": "Поиск продуктов"
 }

@@ -7,17 +7,19 @@
 
   .Items {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     gap: 8px 56px;
-    overflow-x: auto;
-    overflow-y: hidden;
+    max-height: calc(2 * 85px + (2 - 1) * 8px + 16px); // 2 - кол-во строк (чтоб после 2х строк появлялся скролл)
+    overflow-x: hidden;
+    overflow-y: auto;
     padding: 8px 8px;
 
     .Item {
       display: flex;
       gap: 4px;
       align-items: center;
+      justify-content: center;
       user-select: none;
       position: relative;
 

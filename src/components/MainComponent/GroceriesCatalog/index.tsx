@@ -7,7 +7,7 @@ function GroceriesCatalog() {
   return (
     <div className={styles.GroceriesCatalog}>
       {/*GroceriesCatalogSearch*/}
-      <GroceriesCatalogItems/>
+      <GroceriesCatalogItems className={styles.GroceriesCatalogItemsWrapper}/>
       <GroceriesCatalogSelectedItems className={styles.GroceriesCatalogSelectedItemsWrapper}/>
       {/*ActionButtons*/}
     </div>
